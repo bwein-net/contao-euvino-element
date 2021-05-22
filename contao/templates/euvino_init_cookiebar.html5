@@ -4,6 +4,7 @@
         font-family: sans-serif;
         text-align: center;
         color: #6f6f6f;
+        padding: 30px 0;
     }
     .euvino-element .ccb-element-blocker .cc-icon {
         position: relative;
@@ -48,7 +49,7 @@
         background: #ececec;
     }
 </style>
-<div class="euvino-element" style="width: 100%; height: 500px">
+<div class="euvino-element">
     <div id="<?php echo $this->id; ?>-blocker" class="ccb-element-blocker">
         <div class="cc-icon euvino"></div>
         <div id="<?php echo $this->id; ?>-blocker-inner" style="display: none;">
