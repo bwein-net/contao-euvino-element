@@ -1,0 +1,14 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/tl_cookie.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_cookie.euvino.0">
+        <source>Euvino</source>
+        <target>Euvino</target>
+      </trans-unit>
+      <trans-unit id="tl_cookie.euvino.1">
+        <source>Integrate Euvino.</source>
+        <target>Euvino einbinden.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

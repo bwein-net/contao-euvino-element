@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="php" original="src/Resources/contao/languages/de/tl_content.xlf" source-language="en"
+          target-language="de">
+        <body>
+            <trans-unit id="tl_content.euvino_legend">
+                <source>Euvino-Einstellungen</source>
+                <target>Euvino-Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tl_content.euvinoId.0">
+                <source>Euvino ID</source>
+                <target>Euvino ID</target>
+            </trans-unit>
+            <trans-unit id="tl_content.euvinoId.1">
+                <source>Die ID bzw. das Kundenkürzel bei Euvino.</source>
+                <target>Die ID bzw. das Kundenkürzel bei Euvino.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,4 @@
+<script>
+    initIframe("<?php echo $this->euvinoId; ?>");
+</script>
+<div id="EuvinoIframeContainer"></div>

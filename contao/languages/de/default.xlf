@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="php" original="src/Resources/contao/languages/de/default.xlf" source-language="en"
+          target-language="de">
+        <body>
+            <trans-unit id="CTE.euvino.0">
+                <source>Euvino</source>
+                <target>Euvino</target>
+            </trans-unit>
+            <trans-unit id="CTE.euvino.1">
+                <source>Generiert das iFrame von Euvino</source>
+                <target>Generiert das iFrame von Euvino</target>
+            </trans-unit>
+            <trans-unit id="MSC.euvino_isLoading">
+                <source>The Euvino-Shop is loading...</source>
+                <target>Das Euvino-Shop wird geladen...</target>
+            </trans-unit>
+            <trans-unit id="MSC.euvino_acceptAndDisplayLabel">
+                <source>Accept and show</source>
+                <target>Akzeptieren und anzeigen</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

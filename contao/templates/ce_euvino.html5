@@ -1,0 +1,9 @@
+<?php declare(strict_types=1);
+
+$this->extend('block_unsearchable'); ?>
+
+<?php if (!empty($this->euvinoCode)) { ?>
+    <?php $this->block('content'); ?>
+    <?php echo $this->euvinoCode; ?>
+    <?php $this->endblock(); ?>
+<?php } ?>

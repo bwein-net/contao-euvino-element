@@ -1,0 +1,80 @@
+<style>
+    .euvino-element .ccb-element-blocker {
+        font-size: 14px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #6f6f6f;
+    }
+    .euvino-element .ccb-element-blocker .cc-icon {
+        position: relative;
+        width: 220px;
+        height: 110px;
+        margin: 15px auto;
+    }
+    .euvino-element .ccb-element-blocker .cc-icon:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("/bundles/contaocookiebar/images/default.png");
+    }
+    .euvino-element .ccb-element-blocker .cc-icon.euvino:after {
+        background-image: url("/bundles/bweineuvinoelement/images/euvino.svg");
+    }
+    .euvino-element .ccb-element-blocker .cc-title{
+        font-weight: bold;
+    }
+    .euvino-element .ccb-element-blocker .cc-description > p {
+        margin: 10px 0;
+    }
+    .euvino-element .ccb-element-blocker .cc-btn{
+        display: inline-block;
+        cursor: pointer;
+        padding: 8px 14px;
+        font-size: 15px;
+        outline: 0 none;
+        border: 1px solid #cfcfcf;
+        border-radius: 4px;
+        color: #444;
+        background: #f5f5f5;
+        text-decoration: none;
+    }
+    .euvino-element .ccb-element-blocker .cc-btn:hover{
+        background: #ececec;
+    }
+</style>
+<div class="euvino-element" style="width: 100%; height: 500px">
+    <div id="<?php echo $this->id; ?>-blocker" class="ccb-element-blocker">
+        <div class="cc-icon euvino"></div>
+        <div id="<?php echo $this->id; ?>-blocker-inner" style="display: none;">
+            <div class="cc-title"><?php echo $this->cookieHandler->title; ?></div>
+            <div class="cc-description"><?php echo $this->cookieHandler->blockDescription; ?></div>
+            <button class="cc-btn accept" onclick="cookiebar.unblock(this, <?php echo $this->cookieHandler->id; ?>, window.location.href)">
+                <?php echo $this->trans('MSC.euvino_acceptAndDisplayLabel'); ?>
+            </button>
+        </div>
+    </div>
+    <div id="<?php echo $this->id; ?>" class="content" style="display: none;">
+        <div id="EuvinoIframeContainer">
+            <?php echo $this->trans('MSC.euvino_isLoading'); ?>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    function init_blocker_<?php echo $this->id; ?>() {
+        document.getElementById('<?php echo $this->id; ?>-blocker-inner').style.display = "block";
+        document.getElementById('<?php echo $this->id; ?>').style.display = "none";
+    }
+    bwein_euvino.addCallback('init_blocker_<?php echo $this->id; ?>', false);
+    function init_widget_<?php echo $this->id; ?>() {
+        document.getElementById('<?php echo $this->id; ?>-blocker').style.display = "none";
+        document.getElementById('<?php echo $this->id; ?>').style.display = "block";
+        initIframe("<?php echo $this->euvinoId; ?>");
+    }
+    bwein_euvino.addCallback('init_widget_<?php echo $this->id; ?>');
+</script>
