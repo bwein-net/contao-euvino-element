@@ -45,6 +45,9 @@
   "suggest": {
     "oveleon/contao-cookiebar": "Supports blocking of cookies from the Euvino element."
   },
+  "conflict": {
+    "oveleon/contao-cookiebar": ">=1.10.0"
+  },
   "autoload": {
     "psr-4": {
       "Bwein\\EuvinoElement\\": "src/"
