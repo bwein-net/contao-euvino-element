@@ -35,12 +35,12 @@ class CompileCookieTypeListener
             $GLOBALS['TL_JAVASCRIPT']['bwein_euvino'] = 'bundles/bweineuvinoelement/js/euvino.js';
             $cookieHandler->addScript(
                 'bwein_euvino.initBlocker('.$cookieHandler->id.', [\''.EuvinoElementController::EUVINO_SCRIPT_SRC_URL.'\'])',
-                false,
+                CookieHandler::LOAD_UNCONFIRMED,
                 CookieHandler::POS_BELOW
             );
             $cookieHandler->addScript(
                 'bwein_euvino.initEuvinoScripts([\''.EuvinoElementController::EUVINO_SCRIPT_SRC_URL.'\'])',
-                true,
+                CookieHandler::LOAD_CONFIRMED,
                 CookieHandler::POS_BELOW
             );
         }
