@@ -62,5 +62,12 @@
       "@php tools/ecs/vendor/bin/ecs check contao/ src/ --fix --ansi",
       "@php tools/ecs/vendor/bin/ecs check contao/ src/ --config ecs_template.php --fix --ansi"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "contao-components/installer": true,
+      "php-http/discovery": true,
+      "contao/manager-plugin": true
+    }
   }
 }
