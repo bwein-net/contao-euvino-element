@@ -50,32 +50,32 @@
     }
 </style>
 <div class="euvino-element">
-    <div id="<?php echo $this->id; ?>-blocker" class="ccb-element-blocker">
+    <div id="<?= $this->id; ?>-blocker" class="ccb-element-blocker">
         <div class="cc-icon euvino"></div>
-        <div id="<?php echo $this->id; ?>-blocker-inner" style="display: none;">
-            <div class="cc-title"><?php echo $this->cookieHandler->title; ?></div>
-            <div class="cc-description"><?php echo $this->cookieHandler->blockDescription; ?></div>
-            <button class="cc-btn accept" onclick="cookiebar.unblock(this, <?php echo $this->cookieHandler->id; ?>, window.location.href)">
-                <?php echo $this->trans('MSC.euvino_acceptAndDisplayLabel'); ?>
+        <div id="<?= $this->id; ?>-blocker-inner" style="display: none;">
+            <div class="cc-title"><?= $this->cookieHandler->title; ?></div>
+            <div class="cc-description"><?= $this->cookieHandler->blockDescription; ?></div>
+            <button class="cc-btn accept" onclick="cookiebar.unblock(this, <?= $this->cookieHandler->id; ?>, window.location.href)">
+                <?= $this->trans('MSC.euvino_acceptAndDisplayLabel'); ?>
             </button>
         </div>
     </div>
-    <div id="<?php echo $this->id; ?>" class="content" style="display: none;">
+    <div id="<?= $this->id; ?>" class="content" style="display: none;">
         <div id="EuvinoIframeContainer">
-            <?php echo $this->trans('MSC.euvino_isLoading'); ?>
+            <?= $this->trans('MSC.euvino_isLoading'); ?>
         </div>
     </div>
 </div>
 <script type="application/javascript">
-    function init_blocker_<?php echo $this->id; ?>() {
-        document.getElementById('<?php echo $this->id; ?>-blocker-inner').style.display = "block";
-        document.getElementById('<?php echo $this->id; ?>').style.display = "none";
+    function init_blocker_<?= $this->id; ?>() {
+        document.getElementById('<?= $this->id; ?>-blocker-inner').style.display = "block";
+        document.getElementById('<?= $this->id; ?>').style.display = "none";
     }
-    bwein_euvino.addCallback('init_blocker_<?php echo $this->id; ?>', false);
-    function init_widget_<?php echo $this->id; ?>() {
-        document.getElementById('<?php echo $this->id; ?>-blocker').style.display = "none";
-        document.getElementById('<?php echo $this->id; ?>').style.display = "block";
-        initIframe("<?php echo $this->euvinoId; ?>");
+    bwein_euvino.addCallback('init_blocker_<?= $this->id; ?>', false);
+    function init_widget_<?= $this->id; ?>() {
+        document.getElementById('<?= $this->id; ?>-blocker').style.display = "none";
+        document.getElementById('<?= $this->id; ?>').style.display = "block";
+        initIframe("<?= $this->euvinoId; ?>");
     }
-    bwein_euvino.addCallback('init_widget_<?php echo $this->id; ?>');
+    bwein_euvino.addCallback('init_widget_<?= $this->id; ?>');
 </script>

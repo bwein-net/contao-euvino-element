@@ -28,6 +28,7 @@ use Symfony\Component\HttpFoundation\Response;
 class EuvinoElementController extends AbstractContentElementController
 {
     public const EUVINO_SCRIPT_SRC_URL = 'https://www.euvino.eu/jsc/iframe.js';
+
     private $cookiebarHelper;
 
     public function __construct(CookiebarHelper $cookiebarHelper)
@@ -35,7 +36,7 @@ class EuvinoElementController extends AbstractContentElementController
         $this->cookiebarHelper = $cookiebarHelper;
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response|null
     {
         $cookiebarConfig = $this->cookiebarHelper->getCookiebarConfig();
         $cookieHandler = $this->cookiebarHelper->getCookieHandler($cookiebarConfig);
@@ -46,7 +47,7 @@ class EuvinoElementController extends AbstractContentElementController
         return $template->getResponse();
     }
 
-    protected function addWidgetAssets(?CookieHandler $cookieHandler): void
+    protected function addWidgetAssets(CookieHandler|null $cookieHandler): void
     {
         if (null !== $cookieHandler) {
             $GLOBALS['TL_JAVASCRIPT']['bwein_euvino'] = 'bundles/bweineuvinoelement/js/euvino.js';
@@ -57,7 +58,7 @@ class EuvinoElementController extends AbstractContentElementController
         }
     }
 
-    protected function generateElementInit(?CookieHandler $cookieHandler, ContentModel $model): string
+    protected function generateElementInit(CookieHandler|null $cookieHandler, ContentModel $model): string
     {
         $templateInitName = null !== $cookieHandler ? 'euvino_init_cookiebar' : 'euvino_init';
         $template = new FrontendTemplate($templateInitName);

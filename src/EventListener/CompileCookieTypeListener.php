@@ -36,12 +36,12 @@ class CompileCookieTypeListener
             $cookieHandler->addScript(
                 'bwein_euvino.initBlocker('.$cookieHandler->id.', [\''.EuvinoElementController::EUVINO_SCRIPT_SRC_URL.'\'])',
                 CookieHandler::LOAD_UNCONFIRMED,
-                CookieHandler::POS_BELOW
+                CookieHandler::POS_BELOW,
             );
             $cookieHandler->addScript(
                 'bwein_euvino.initEuvinoScripts([\''.EuvinoElementController::EUVINO_SCRIPT_SRC_URL.'\'])',
                 CookieHandler::LOAD_CONFIRMED,
-                CookieHandler::POS_BELOW
+                CookieHandler::POS_BELOW,
             );
         }
     }

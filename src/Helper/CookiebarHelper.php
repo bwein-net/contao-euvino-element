@@ -22,6 +22,7 @@ class CookiebarHelper
     public const COOKIEBAR_SETTING_TYPE_NAME = 'euvino';
 
     private $requestStack;
+
     private $scopeMatcher;
 
     public function __construct(RequestStack $requestStack, ScopeMatcher $scopeMatcher)
@@ -30,7 +31,7 @@ class CookiebarHelper
         $this->scopeMatcher = $scopeMatcher;
     }
 
-    public function getCookiebarConfig(): ?object
+    public function getCookiebarConfig(): object|null
     {
         if (!class_exists(Cookiebar::class)) {
             return null;
@@ -47,7 +48,7 @@ class CookiebarHelper
         return $config ?? null;
     }
 
-    public function getCookieHandler(?object $config): ?CookieHandler
+    public function getCookieHandler(object|null $config): CookieHandler|null
     {
         if (null === $config) {
             return null;
