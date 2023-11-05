@@ -36,7 +36,7 @@ class EuvinoElementController extends AbstractContentElementController
         $this->cookiebarHelper = $cookiebarHelper;
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): Response|null
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
         $cookiebarConfig = $this->cookiebarHelper->getCookiebarConfig();
         $cookieHandler = $this->cookiebarHelper->getCookieHandler($cookiebarConfig);
