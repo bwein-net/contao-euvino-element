@@ -53,9 +53,9 @@
     <div id="<?= $this->id; ?>-blocker" class="ccb-element-blocker">
         <div class="cc-icon euvino"></div>
         <div id="<?= $this->id; ?>-blocker-inner" style="display: none;">
-            <div class="cc-title"><?= $this->cookieHandler->title; ?></div>
-            <div class="cc-description"><?= $this->cookieHandler->blockDescription; ?></div>
-            <button class="cc-btn accept" onclick="cookiebar.unblock(this, <?= $this->cookieHandler->id; ?>, window.location.href)">
+            <div class="cc-title"><?= $this->cookie->title; ?></div>
+            <div class="cc-description"><?= $this->cookie->blockDescription; ?></div>
+            <button class="cc-btn accept" onclick="cookiebar.unblock(this, <?= $this->cookie->id; ?>, window.location.href)">
                 <?= $this->trans('MSC.euvino_acceptAndDisplayLabel'); ?>
             </button>
         </div>

@@ -18,7 +18,7 @@ use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController
 use Contao\CoreBundle\ServiceAnnotation\ContentElement;
 use Contao\FrontendTemplate;
 use Contao\Template;
-use Oveleon\ContaoCookiebar\CookieHandler;
+use Oveleon\ContaoCookiebar\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -39,17 +39,17 @@ class EuvinoElementController extends AbstractContentElementController
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
         $cookiebarConfig = $this->cookiebarHelper->getCookiebarConfig();
-        $cookieHandler = $this->cookiebarHelper->getCookieHandler($cookiebarConfig);
+        $cookie = $this->cookiebarHelper->getCookie($cookiebarConfig);
 
-        $this->addWidgetAssets($cookieHandler);
-        $template->euvinoCode = $this->generateElementInit($cookieHandler, $model);
+        $this->addWidgetAssets($cookie);
+        $template->euvinoCode = $this->generateElementInit($cookie, $model);
 
         return $template->getResponse();
     }
 
-    protected function addWidgetAssets(CookieHandler|null $cookieHandler): void
+    protected function addWidgetAssets(Cookie|null $cookie): void
     {
-        if (null !== $cookieHandler) {
+        if (null !== $cookie) {
             $GLOBALS['TL_JAVASCRIPT']['bwein_euvino'] = 'bundles/bweineuvinoelement/js/euvino.js';
         } else {
             $template = new FrontendTemplate('euvino_scripts');
@@ -58,13 +58,13 @@ class EuvinoElementController extends AbstractContentElementController
         }
     }
 
-    protected function generateElementInit(CookieHandler|null $cookieHandler, ContentModel $model): string
+    protected function generateElementInit(Cookie|null $cookie, ContentModel $model): string
     {
-        $templateInitName = null !== $cookieHandler ? 'euvino_init_cookiebar' : 'euvino_init';
+        $templateInitName = null !== $cookie ? 'euvino_init_cookiebar' : 'euvino_init';
         $template = new FrontendTemplate($templateInitName);
         $template->id = $model->id;
         $template->euvinoId = $model->euvinoId;
-        $template->cookieHandler = $cookieHandler;
+        $template->cookie = $cookie;
 
         return $template->parse();
     }

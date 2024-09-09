@@ -15,12 +15,12 @@ namespace Bwein\EuvinoElement\EventListener;
 use Bwein\EuvinoElement\Controller\ContentElement\EuvinoElementController;
 use Bwein\EuvinoElement\Helper\CookiebarHelper;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
-use Oveleon\ContaoCookiebar\CookieHandler;
+use Oveleon\ContaoCookiebar\Cookie;
 
 /**
- * @Hook("compileCookieType")
+ * @Hook("addCookieType")
  */
-class CompileCookieTypeListener
+class AddCookieTypeListener
 {
     private $cookiebarHelper;
 
@@ -29,19 +29,19 @@ class CompileCookieTypeListener
         $this->cookiebarHelper = $cookiebarHelper;
     }
 
-    public function __invoke(string $type, CookieHandler $cookieHandler): void
+    public function __invoke(string $type, Cookie $cookie): void
     {
         if ($type === $this->cookiebarHelper::COOKIEBAR_SETTING_TYPE_NAME) {
             $GLOBALS['TL_JAVASCRIPT']['bwein_euvino'] = 'bundles/bweineuvinoelement/js/euvino.js';
-            $cookieHandler->addScript(
-                'bwein_euvino.initBlocker('.$cookieHandler->id.', [\''.EuvinoElementController::EUVINO_SCRIPT_SRC_URL.'\'])',
-                CookieHandler::LOAD_UNCONFIRMED,
-                CookieHandler::POS_BELOW,
+            $cookie->addScript(
+                'bwein_euvino.initBlocker('.$cookie->id.', [\''.EuvinoElementController::EUVINO_SCRIPT_SRC_URL.'\'])',
+                Cookie::LOAD_UNCONFIRMED,
+                Cookie::POS_BELOW,
             );
-            $cookieHandler->addScript(
+            $cookie->addScript(
                 'bwein_euvino.initEuvinoScripts([\''.EuvinoElementController::EUVINO_SCRIPT_SRC_URL.'\'])',
-                CookieHandler::LOAD_CONFIRMED,
-                CookieHandler::POS_BELOW,
+                Cookie::LOAD_CONFIRMED,
+                Cookie::POS_BELOW,
             );
         }
     }

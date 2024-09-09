@@ -14,7 +14,7 @@ namespace Bwein\EuvinoElement\Helper;
 
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Oveleon\ContaoCookiebar\Cookiebar;
-use Oveleon\ContaoCookiebar\CookieHandler;
+use Oveleon\ContaoCookiebar\Cookie;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class CookiebarHelper
@@ -48,7 +48,7 @@ class CookiebarHelper
         return $config ?? null;
     }
 
-    public function getCookieHandler(object|null $config): CookieHandler|null
+    public function getCookie(object|null $config): Cookie|null
     {
         if (null === $config) {
             return null;
