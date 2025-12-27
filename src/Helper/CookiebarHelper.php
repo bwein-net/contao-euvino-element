@@ -13,22 +13,18 @@ declare(strict_types=1);
 namespace Bwein\EuvinoElement\Helper;
 
 use Contao\CoreBundle\Routing\ScopeMatcher;
-use Oveleon\ContaoCookiebar\Cookiebar;
 use Oveleon\ContaoCookiebar\Cookie;
+use Oveleon\ContaoCookiebar\Cookiebar;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class CookiebarHelper
 {
     public const COOKIEBAR_SETTING_TYPE_NAME = 'euvino';
 
-    private $requestStack;
-
-    private $scopeMatcher;
-
-    public function __construct(RequestStack $requestStack, ScopeMatcher $scopeMatcher)
-    {
-        $this->requestStack = $requestStack;
-        $this->scopeMatcher = $scopeMatcher;
+    public function __construct(
+        private readonly RequestStack $requestStack,
+        private readonly ScopeMatcher $scopeMatcher,
+    ) {
     }
 
     public function getCookiebarConfig(): object|null

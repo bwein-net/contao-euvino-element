@@ -14,19 +14,14 @@ namespace Bwein\EuvinoElement\EventListener;
 
 use Bwein\EuvinoElement\Controller\ContentElement\EuvinoElementController;
 use Bwein\EuvinoElement\Helper\CookiebarHelper;
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Oveleon\ContaoCookiebar\Cookie;
 
-/**
- * @Hook("addCookieType")
- */
+#[AsHook('addCookieType')]
 class AddCookieTypeListener
 {
-    private $cookiebarHelper;
-
-    public function __construct(CookiebarHelper $cookiebarHelper)
+    public function __construct(private readonly CookiebarHelper $cookiebarHelper)
     {
-        $this->cookiebarHelper = $cookiebarHelper;
     }
 
     public function __invoke(string $type, Cookie $cookie): void
